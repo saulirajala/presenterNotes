@@ -1,9 +1,16 @@
   body {
       position: relative;
   }
+  
+  .wrap.container {
+      margin-left: 0;
+      margin-right: 0;
+  }
+  
   ul.nav-pills {
       top: 20px;
       position: fixed;
+      width: 19%;
   }
   div.col-sm-9 div {
       height: 250px;
