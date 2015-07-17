@@ -75,14 +75,7 @@
     $( document ).ready( UTIL.loadEvents );
 
     $( document ).ready( function () {
-        $( "#myScrollspy" ).on( "activate.bs.scrollspy", function () {
-            if ( $( ".dropdown" ).hasClass("active") ) {
-                $( ".dropdown" ).addClass("open");
-            }
-            if ( ! $( ".dropdown" ).hasClass("active") ) {
-                $( ".dropdown" ).removeClass("open");
-            }
-        } )
+        $("#page-nav").children("li:first-child").addClass("active")
     } );
 
 } )( jQuery ); // Fully reference jQuery after this point.
