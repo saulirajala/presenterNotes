@@ -75,7 +75,8 @@
     $( document ).ready( UTIL.loadEvents );
 
     $( document ).ready( function () {
-        $("#page-nav").children("li:first-child").addClass("active")
+        $("#page-nav").children("li:first-child").addClass("active");
+        
     } );
 
 } )( jQuery ); // Fully reference jQuery after this point.

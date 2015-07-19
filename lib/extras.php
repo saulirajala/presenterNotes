@@ -95,7 +95,7 @@ function whit_section_navigation_shortcode( $atts, $title = null ) {
 		} else { //jos on alaotsikko
 			//tulostetaan <ul> jos eka
 			if ( ! isset( $otsikot[$i-1][ 2 ] ) ) { //jos edellinen ei ollut alaotsikko
-				$return_val .= '<ul class="nav">';
+				$return_val .= '<ul class="nav subnav">';
 			}
 			$return_val .= '<li><a href="#' . $otsikot[$i][ 0 ] . '">' . $otsikot[$i][ 1 ] . '</a>'; //lisätään listan itemin aloitus ja linkki
 		}
