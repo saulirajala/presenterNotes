@@ -24,11 +24,11 @@
 			<nav class="col-xs-3 col-md-3" id="myScrollspy">
 				<ul class="nav nav-pills nav-stacked">
 					<li class="active"><a href="#title1">Jumalakuvat</a></li>
-					<li class="submenu"><a href="#title1_1">Nooa-elokuva</a></li>
-					<li class="submenu"><a href="#title1_2">Aleksanteri Suuri</a></li>
+					<li class="submenu"><a href="#title1_1">Vihainen ja ankara</a></li>
+					<li class="submenu"><a href="#title1_2">Armoton valloittaja</a></li>
 					<li ><a href="#title2">Fil. 2:5-11</a></li>
 					<li class="submenu"><a href="#title2_1">“Tyhjensi itsensä”</a></li>
-					<li class="submenu"><a href="#title2_2">Millainen Jumala siis on?</a></li>
+					<li class="submenu"><a href="#title2_2">Jutun hienous</a></li>
 					<li><a href="#title3">So what?</a></li>
 					<li class="submenu"><a href="#title3_1">Ajattele positiivisemmin itsestäsi</a></li>
 					<li class="submenu"><a href="#title3_2">Ajattele positiivisemmin nykyisestä maailmanmenosta</a></li>
