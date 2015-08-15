@@ -1,18 +1,21 @@
 # Sermon Notes
-Sermon Notes -theme for Wordpress.
-Build on top of Sage Roots -theme
+Sermon Notes -theme for Wordpress. Build on top of Sage Roots -theme. Uses Twitter Bootstrap and jQuery
+
+Livedemo: http://irajala.com/sermonnotes/
 
 ###Functionalities:
+There are two shortcode in theme: 
 
 -With [section]-shortcode you can add sections to your post/page text
 
 -With [section_navigation]-shortcode you can print out navigation of your post/page
 
-Add the following code, where you want to echo the navigation:
+###Installation
+Add the following code, to where you want to echo the navigation:
 
 <?php echo do_shortcode( "[section_navigation]" ); ?>
 
-Livedemo: http://irajala.com/sermonnotes/
+Add shortcodes to your text by using keyboard shortcut or button in tinyMCE toolbar
 
 ###Keyboard shortcut:
 
