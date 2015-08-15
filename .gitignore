@@ -5,7 +5,15 @@ bower_components
 node_modules
 npm-debug.log
 *.log
+*~
+.svn
+.cvs
+.git
+.listing
+*.bak
+*.swp
 .htaccess
+.bowerrc
 .DS_Store
 sitemap.xml
 sitemap.xml.gz
