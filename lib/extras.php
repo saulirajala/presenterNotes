@@ -68,7 +68,6 @@ add_shortcode( 'section', __NAMESPACE__ . '\\irajala_section_shortcode' );
  * [section_navigation] //tulostaa navigaation
  * 
  */
-
 function irajala_section_navigation_shortcode( $atts, $title = null ) {
 
 	global $otsikot;
@@ -88,7 +87,6 @@ function irajala_section_navigation_shortcode( $atts, $title = null ) {
 	$return_val .= '</ul>'; //lisätään listan lopetus
 	return $return_val;
 }
-
 add_shortcode( 'section_navigation', __NAMESPACE__ . '\\irajala_section_navigation_shortcode' );
 
 /*
@@ -106,13 +104,23 @@ function add_button() {
 
 add_action( 'init',  __NAMESPACE__ . '\\add_button' );
 
-
+/**
+ * Registers new buttons to tinyMCE toolbar
+ * 
+ * @param type $buttons
+ * @return type
+ */
 function register_button($buttons) {
    array_push($buttons, "irajala_section_shortcode_title1");
    array_push($buttons, "irajala_section_shortcode_title2");
    return $buttons;
 }
 
+/**
+ * Adds javascript to button
+ * @param array $plugin_array
+ * @return string
+ */
 function add_plugin($plugin_array) {
    $plugin_array['irajala_section_shortcode'] = get_bloginfo('template_url').'/assets//scripts/main.js';
    return $plugin_array;
@@ -120,12 +128,13 @@ function add_plugin($plugin_array) {
 
 
 
-
-function my_custom_fonts() {
+/** Add custom styles to admin
+ * https://css-tricks.com/snippets/wordpress/apply-custom-css-to-admin-area/
+ */
+function irajala_custom_styles() {
   echo '<style>
-    i.mce-i-icon-h1:before {content:"[h1]";}
-    i.mce-i-icon-h2:before {content:"[h2]";}
+    i.mce-i-icon-h1:before{content:"[section]";}
+    i.mce-i-icon-h1{width:60px!important;}
   </style>';
 }
-
-add_action('admin_head', __NAMESPACE__ . '\\my_custom_fonts');
+add_action('admin_head', __NAMESPACE__ . '\\irajala_custom_styles');
