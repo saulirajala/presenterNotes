@@ -122,7 +122,7 @@ function register_button($buttons) {
  * @return string
  */
 function add_plugin($plugin_array) {
-   $plugin_array['irajala_section_shortcode'] = get_bloginfo('template_url').'/assets//scripts/main.js';
+   $plugin_array['irajala_section_shortcode'] = get_template_directory_uri().'/dist/scripts/main.js';
    return $plugin_array;
 }
 
