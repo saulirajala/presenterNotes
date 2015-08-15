@@ -108,7 +108,8 @@ add_action( 'init',  __NAMESPACE__ . '\\add_button' );
 
 
 function register_button($buttons) {
-   array_push($buttons, "irajala_section_shortcode"); //pitäköhän tässä olla __NAMESPACE__
+   array_push($buttons, "irajala_section_shortcode_title1");
+   array_push($buttons, "irajala_section_shortcode_title2");
    return $buttons;
 }
 
@@ -116,3 +117,15 @@ function add_plugin($plugin_array) {
    $plugin_array['irajala_section_shortcode'] = get_bloginfo('template_url').'/assets//scripts/main.js';
    return $plugin_array;
 }
+
+
+
+
+function my_custom_fonts() {
+  echo '<style>
+    i.mce-i-icon-h1:before {content:"[h1]";}
+    i.mce-i-icon-h2:before {content:"[h2]";}
+  </style>';
+}
+
+add_action('admin_head', __NAMESPACE__ . '\\my_custom_fonts');
