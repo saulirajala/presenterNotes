@@ -19,9 +19,7 @@
 			</div>
 
 			<nav class="col-xs-3 col-md-3" id="myScrollspy">
-				<?php
-				echo do_shortcode( "[section_navigation]" ); 
-				?>
+				<?php echo do_shortcode( "[section_navigation]" ); ?>
 			</nav>
 		</div>
 
