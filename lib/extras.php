@@ -36,8 +36,13 @@ add_filter( 'excerpt_more', __NAMESPACE__ . '\\excerpt_more' );
 
 
 $otsikot = array();
+/*
+ * Shortcode that adds span-element that wraps the content and creates $otsikot global array, 
+ * where the title and subtitles are stored
+ * [section title="1" subtitle="1"]My Section Title[/section]
+ * 
+ */
 
-// [section title="1" subtitle="1"]My Section Title[/section]                                          
 function irajala_section_shortcode( $atts, $title = null ) {
 
 	global $otsikot;
@@ -46,11 +51,10 @@ function irajala_section_shortcode( $atts, $title = null ) {
 		'title'		 => null,
 		'subtitle'	 => null,
 	), $atts, 'irajala_section_shortcode' );
-	var_dump( $atts );
-	if ( isset( $atts[ 'title'  ] ) && isset( $atts[ 'subtitle' ] ) ) {
+	if ( !empty( $atts[ 'title' ] ) && !empty( $atts[ 'subtitle' ] ) ) {
 		$id			 = "title" . $atts[ 'title' ] . "-" . $atts[ 'subtitle' ];
 		$otsikot[]	 = array( $id, $title, true );
-	} elseif ( isset( $atts[ 'title' ] ) ) {
+	} elseif ( !empty( $atts[ 'title' ] ) ) {
 		$id			 = "title" . $atts[ 'title' ];
 		$otsikot[]	 = array( $id, $title );
 	}
@@ -59,7 +63,12 @@ function irajala_section_shortcode( $atts, $title = null ) {
 
 add_shortcode( 'section', __NAMESPACE__ . '\\irajala_section_shortcode' );
 
-// [section_navigation] //tulostaa navigaation
+/*
+ * Shortcode that displays posts nagivation menu
+ * [section_navigation] //tulostaa navigaation
+ * 
+ */
+
 function irajala_section_navigation_shortcode( $atts, $title = null ) {
 
 	global $otsikot;
@@ -82,3 +91,28 @@ function irajala_section_navigation_shortcode( $atts, $title = null ) {
 
 add_shortcode( 'section_navigation', __NAMESPACE__ . '\\irajala_section_navigation_shortcode' );
 
+/*
+ * Adds shortcode button to TinyMCE-editor
+ */
+function add_button() {
+	//jos ollaan visuaalisessa editorissa
+	if ( get_user_option( 'rich_editing' ) ) {
+		if ( current_user_can( 'edit_posts' ) && current_user_can( 'edit_pages' ) ) {
+			add_filter( 'mce_external_plugins',  __NAMESPACE__ . '\\add_plugin' );
+			add_filter( 'mce_buttons',  __NAMESPACE__ . '\\register_button' );
+		}
+	}
+}
+
+add_action( 'init',  __NAMESPACE__ . '\\add_button' );
+
+
+function register_button($buttons) {
+   array_push($buttons, "irajala_section_shortcode"); //pitäköhän tässä olla __NAMESPACE__
+   return $buttons;
+}
+
+function add_plugin($plugin_array) {
+   $plugin_array['irajala_section_shortcode'] = get_bloginfo('template_url').'/assets//scripts/main.js';
+   return $plugin_array;
+}
