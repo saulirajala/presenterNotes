@@ -12,6 +12,7 @@ Add the following code, where you want to echo the navigation
 Keyboard shortcut:
 alt+z => opens dialog box to add [section]-shortcode
 
+Livedemo: http://irajala.com/sermonnotes/
 
 ##Changelog
 15.08.2015
