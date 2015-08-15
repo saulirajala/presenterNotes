@@ -1,5 +1,5 @@
-# sermonNotes
-Sermon notes -theme for Wordpress.
+# Sermon Notes
+Sermon Notes -theme for Wordpress.
 Build on top of Sage Roots -theme
 
 Functionalities:
@@ -13,7 +13,6 @@ Keyboard shortcut:
 alt+z => opens dialog box to add [section]-shortcode
 
 
-Changelog
-===========
+##Changelog
 15.08.2015
 v1.0 is published with basic functionalities
