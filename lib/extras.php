@@ -74,7 +74,7 @@ function irajala_section_navigation_shortcode( $atts, $title = null ) {
 	$return_val = '<ul class="nav nav-pills nav-stacked">'; //lisätään listan aloitus
 
 	for ( $i = 0; $i < count( $otsikot ); $i++ ) {
-		if ( !$otsikot[ $i ][ 2 ] ) { //jos ei ole alaotsikko
+		if ( !isset($otsikot[ $i ][ 2 ]) ) { //jos ei ole alaotsikko
 			//tulostetaan </li> jos eka
 			$return_val .= '</li>';
 

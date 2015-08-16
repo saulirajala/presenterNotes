@@ -144,15 +144,14 @@
                                     title: 'Syötä lyhytkoodin parametrit',
                                     body: [
                                         {
-                                            type: 'checkbox',
-                                            name: 'subtitle',
-                                            label: 'Subtitle?',
-                                            autofocus: 'true'
-                                        },
-                                        {
                                             type: 'textbox',
                                             name: 'textboxTitle',
                                             label: 'Title'
+                                        },
+                                        {
+                                            type: 'checkbox',
+                                            name: 'subtitle',
+                                            label: 'Subtitle?',
                                         },
                                         {
                                             type: 'textbox',
