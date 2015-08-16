@@ -103,16 +103,16 @@
                                     title: 'Add the parameters for shortcode',
                                     body: [
                                         {
-                                            type: 'checkbox',
-                                            name: 'subtitle',
-                                            label: 'Subtitle?',
-                                            autofocus: 'true'
-                                        },
-                                        {
                                             type: 'textbox',
                                             name: 'textboxTitle',
                                             label: 'Title',
                                             value: ''
+                                        },
+                                        {
+                                            type: 'checkbox',
+                                            name: 'subtitle',
+                                            label: 'Subtitle?',
+                                            autofocus: 'true'
                                         },
                                         {
                                             type: 'textbox',
@@ -122,10 +122,10 @@
                                         }
                                     ],
                                     onsubmit: function ( e ) {
-                                        if (e.data.subtitle){
-                                            ed.selection.setContent( '<h2>[section title="' + e.data.textboxTitle + '" subtitle="' + e.data.textboxSubtitle + '"]' + ed.selection.getContent() + '[/section]</h2>' );
-                                        }else {
-                                            ed.selection.setContent( '<h1>[section title="' + e.data.textboxTitle + '" subtitle="' + e.data.textboxSubtitle + '"]' + ed.selection.getContent() + '[/section]</h1>' );
+                                        if ( e.data.subtitle ) {
+                                            ed.selection.setContent( '<h2>[section title="' + num_escapeHTML( e.data.textboxTitle ) + '" subtitle="' + num_escapeHTML( e.data.textboxSubtitle ) + '"]' + escapeHTML( ed.selection.getContent() ) + '[/section]</h2>' );
+                                        } else {
+                                            ed.selection.setContent( '<h1>[section title="' + num_escapeHTML( e.data.textboxTitle ) + '" subtitle="' + num_escapeHTML( e.data.textboxSubtitle ) + '"]' + escapeHTML( ed.selection.getContent() ) + '[/section]</h1>' );
                                         }
                                     }
                                 } );
@@ -160,16 +160,16 @@
                                         }
                                     ],
                                     onsubmit: function ( e ) {
-                                        if (e.data.subtitle){
-                                            return_text = '<h2>[section title="' + e.data.textboxTitle + '" subtitle="' + e.data.textboxSubtitle + '"]' + selected_text + '[/section]</h2>';
-                                        }else {
-                                            return_text = '<h1>[section title="' + e.data.textboxTitle + '" subtitle="' + e.data.textboxSubtitle + '"]' + selected_text + '[/section]</h1>';
+                                        if ( e.data.subtitle ) {
+                                            return_text = '<h2>[section title="' + num_escapeHTML( e.data.textboxTitle ) + '" subtitle="' + num_escapeHTML( e.data.textboxSubtitle ) + '"]' + escapeHTML( selected_text ) + '[/section]</h2>';
+                                        } else {
+                                            return_text = '<h1>[section title="' + num_escapeHTML( e.data.textboxTitle ) + '" subtitle="' + num_escapeHTML( e.data.textboxSubtitle ) + '"]' + escapeHTML( selected_text ) + '[/section]</h1>';
                                         }
                                         ed.execCommand( 'mceInsertContent', 0, return_text );
                                     }
                                 } );
                             }
-                            
+
                         } );
                     }
                 } );
@@ -178,5 +178,34 @@
         }
 
     } );
+
+    function escapeHTML( someHtmlString, number ) {
+        var entityMap = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': '&quot;',
+            "'": '&#39;',
+            "/": '&#x2F;'
+        };
+
+        var ret_val = String( someHtmlString ).replace( /[&<>"'\/]/g, function ( s ) {
+            return entityMap[s];
+        } );
+
+        
+        return ret_val;
+        
+        
+    }
+    
+    function num_escapeHTML( someHtmlString) {
+        var esc_val = escapeHTML(someHtmlString);
+        if ( $.isNumeric( esc_val ) ) {
+            return esc_val;
+        }
+        return "";
+    }
+
 
 } )( jQuery ); // Fully reference jQuery after this point.

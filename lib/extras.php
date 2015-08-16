@@ -58,7 +58,7 @@ function irajala_section_shortcode( $atts, $title = null ) {
 		$id			 = "title" . $atts[ 'title' ];
 		$otsikot[]	 = array( $id, $title );
 	}
-	return '<span id="' . $id . '">' . $title . '</span>';
+	return '<span id="' . esc_attr($id) . '">' . esc_html($title) . '</span>';
 }
 
 add_shortcode( 'section', __NAMESPACE__ . '\\irajala_section_shortcode' );
@@ -79,9 +79,9 @@ function irajala_section_navigation_shortcode( $atts, $title = null ) {
 			$return_val .= '</li>';
 
 			//tulostetaan h1-taso
-			$return_val .= '<li><a href="#' . $otsikot[ $i ][ 0 ] . '">' . $otsikot[ $i ][ 1 ] . '</a>'; //lisätään listan itemin aloitus ja linkki
+			$return_val .= '<li><a href="#' . esc_attr($otsikot[ $i ][ 0 ]) . '">' . esc_html($otsikot[ $i ][ 1 ]) . '</a>'; //lisätään listan itemin aloitus ja linkki
 		} else { //jos on alaotsikko
-			$return_val .= '<li class="submenu"><a href="#' . $otsikot[ $i ][ 0 ] . '">' . $otsikot[ $i ][ 1 ] . '</a>'; //lisätään listan itemin aloitus ja linkki
+			$return_val .= '<li class="submenu"><a href="#' . esc_attr($otsikot[ $i ][ 0 ]) . '">' . esc_html($otsikot[ $i ][ 1 ]) . '</a>'; //lisätään listan itemin aloitus ja linkki
 		}
 	}
 	$return_val .= '</ul>'; //lisätään listan lopetus
