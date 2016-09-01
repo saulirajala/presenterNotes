@@ -145,3 +145,4 @@ function irajala_custom_styles() {
 }
 
 add_action( 'admin_head', __NAMESPACE__ . '\\irajala_custom_styles' );
+
