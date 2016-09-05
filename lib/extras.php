@@ -154,14 +154,11 @@ add_action( 'admin_head', __NAMESPACE__ . '\\irajala_custom_styles' );
 function irajala_change_shortcode( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'left'    => true,
-			'right' => false,
-			'bottom' => false,
-			'top' => false,
+			'direction'    => 'left',
 		), $atts, 'irajala_section_shortcode' );
 
 
-	return '<span id="changeSlide">Vaihdetaan dia </span>';
+	return '<span id="changeSlide" data-direction="'.$atts['direction'].'">Vaihdetaan dia </span>';
 
 }
 

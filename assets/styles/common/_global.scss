@@ -1,8 +1,8 @@
 body {
     position: relative;
-}
-col-md-9 {
-    float:right;
+    &.single-post {
+        overflow: scroll;
+    }
 }
 .wrap.container {
     margin-left: 0;

@@ -22,6 +22,12 @@
             },
             finalize: function () {
                 // JavaScript to be fired on all pages, after page specific JS is fired
+                var waypoint = new Waypoint({
+                    element: document.getElementById('changeSlide'),
+                    handler: function(direction) {
+                        console.log('Change slide to ' + document.getElementById('changeSlide').dataset.direction);
+                    }
+                })
             }
         },
         // Home page
