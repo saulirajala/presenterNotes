@@ -146,3 +146,24 @@ function irajala_custom_styles() {
 
 add_action( 'admin_head', __NAMESPACE__ . '\\irajala_custom_styles' );
 
+/*
+ * Shortcode that displays posts nagivation menu
+ * [section_navigation] //tulostaa navigaation
+ *
+ */
+function irajala_change_shortcode( $atts ) {
+	$atts = shortcode_atts(
+		array(
+			'left'    => true,
+			'right' => false,
+			'bottom' => false,
+			'top' => false,
+		), $atts, 'irajala_section_shortcode' );
+
+
+	return '<span id="changeSlide">Vaihdetaan dia </span>';
+
+}
+
+add_shortcode( 'change', __NAMESPACE__ . '\\irajala_change_shortcode' );
+
