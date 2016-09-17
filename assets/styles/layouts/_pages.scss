@@ -2,3 +2,18 @@
 	font-size: 20px;
 	line-height: 2em;
 }
+
+iframe{
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	width: 280px;
+}
+
+.changeSlide {
+	background-color: red;
+	color: #fff;
+	padding: 12px;
+	display: inline-block;
+	text-align: center;
+}

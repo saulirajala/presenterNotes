@@ -22,12 +22,18 @@
             },
             finalize: function () {
                 // JavaScript to be fired on all pages, after page specific JS is fired
-                var waypoint = new Waypoint({
-                    element: document.getElementById('changeSlide'),
-                    handler: function(direction) {
-                        console.log('Change slide to ' + document.getElementById('changeSlide').dataset.direction);
-                    }
-                })
+                $('.changeSlide').each(function (obj, iterator, context) {
+                    var waypoint = new Waypoint({
+                        element: $(this)[0],
+                        handler: function(direction) {
+                            var slide_direction = this.element.dataset.direction;
+
+                            window.postMessage( JSON.stringify({ method: slide_direction }), '*' );
+                            this.destroy();
+                        },
+                    })
+                });
+
             }
         },
         // Home page

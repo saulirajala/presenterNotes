@@ -109,3 +109,19 @@ msgstr ""
 #. Template Name of the plugin/theme
 msgid "Custom Template"
 msgstr ""
+
+#.
+msgid "left"
+msgstr ""
+
+#.
+msgid "right"
+msgstr ""
+
+#.
+msgid "up"
+msgstr ""
+
+#.
+msgid "down"
+msgstr ""

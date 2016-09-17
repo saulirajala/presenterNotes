@@ -158,9 +158,38 @@ function irajala_change_shortcode( $atts ) {
 		), $atts, 'irajala_section_shortcode' );
 
 
-	return '<span id="changeSlide" data-direction="'.$atts['direction'].'">Vaihdetaan dia </span>';
+	return '<span class="changeSlide" data-direction="'.$atts['direction'].'">Vaihdetaan dia  '.__($atts['direction'], 'sage').'</span>';
 
 }
 
 add_shortcode( 'change', __NAMESPACE__ . '\\irajala_change_shortcode' );
 
+
+function get_current_on_air_notes(){
+
+
+// args
+	$args = array(
+		'numberposts' => 1,
+		'post_type'   => 'post',
+		'meta_key'    => 'on_air',
+		'meta_value'  => '1',
+		'orderby'     => 'date',
+	);
+
+	$on_air_id = 0;
+	// query
+	$the_query = new \WP_Query( $args );
+
+	if ( $the_query->have_posts() ):
+
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+			$on_air_id = get_the_ID();
+		endwhile;
+
+	endif;
+
+	wp_reset_query();     // Restore global post data stomped by the_post().
+
+	return $on_air_id;
+}
