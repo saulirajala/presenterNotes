@@ -8,8 +8,10 @@ You can easily add shortcodes to your text by using keyboard shortcut or button 
 
 Livedemo: http://irajala.com/sermonnotes/
 
-##Screenshot:
 
+
+##Screenshot:
+![alt tag](http://irajala.com/wp-content/screenshot-presentationnotes.png)
 
 ###Functionalities:
 There are three shortcode in theme: 
