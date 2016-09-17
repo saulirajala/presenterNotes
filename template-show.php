@@ -28,7 +28,7 @@ use Roots\Sage\Extras;
 				multiplex: {
 					// Example values. To generate your own, see the socket.io server instructions.
 					secret: null, // null so the clients do not have control of the master presentation
-					id: 'a08ae295c8d98c67', // id, obtained from socket.io server
+					id: 'ID', // id, obtained from socket.io server
 					url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh/' // Location of socket.io server
 				},
 

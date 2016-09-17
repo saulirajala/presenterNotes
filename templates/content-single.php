@@ -46,8 +46,8 @@ the_post(); ?>
 
 							multiplex: {
 								// Example values. To generate your own, see the socket.io server instructions.
-								secret: '14734451489802402044', // Obtained from the socket.io server. Gives this (the master) control of the presentation
-								id: 'a08ae295c8d98c67', // Obtained from socket.io server
+								secret: 'SECRET', // Obtained from the socket.io server. Gives this (the master) control of the presentation
+								id: 'ID', // Obtained from socket.io server
 								url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh' // Location of socket.io server
 							},
 
@@ -67,7 +67,7 @@ the_post(); ?>
 					</script>
 				<?php endif; ?>
 			</section>
-			<iframe src="http://omat.dev/presentationnotes/remote-esitys/">
+			<iframe src="<?php echo get_site_url(); ?>/remote-esitys/">
 
 			</iframe>
 		</nav>

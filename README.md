@@ -1,17 +1,21 @@
 # Presenter Notes
-Presenter Notes -theme for Wordpress. It's build on top of Sage Roots -theme and uses Twitter Bootstrap and jQuery.
-This is made especially for preachers and speakers to use as a presenter notes. This theme allows speaker to easily follow where is he in his presentation/sermon and where he is going
+Presenter Notes -theme for Wordpress. It's build on top of Sage Roots -theme and uses Twitter Bootstrap and jQuery. , 
+This is made especially for preachers and speakers to use as a presenter notes.
+This theme allows speaker to easily follow where one is in presentation/sermon and where he is going.
+This theme integrates with reveal.js so you can create and control both your presentation and your notes from WordPress 
 
 You can easily add shortcodes to your text by using keyboard shortcut or button in tinyMCE toolbar
 
 Livedemo: http://irajala.com/sermonnotes/
 
 ###Functionalities:
-There are two shortcode in theme: 
+There are three shortcode in theme: 
 
 -With [section]-shortcode you can add sections to your posttext
 
 -With [section_navigation]-shortcode you can print out the navigation of these sections
+
+-With [change]-shortcode you can define, when the changing of slides should trigger
 
 ###Installation
 Add the following code to your theme, to where you want to echo the navigation:
@@ -22,8 +26,17 @@ Add the following code to your theme, to where you want to echo the navigation:
 
 alt+z => opens dialog box to add [section]-shortcode
 
+###Depencies (WordPress-plugins):
+- Advanced Custom Fields (https://www.advancedcustomfields.com/)
 
+###Depencies (js-framework):
+- Reveal.js (https://github.com/hakimel/reveal.js)
+- Waypoints (http://imakewebthings.com/waypoints/)
 
 ##Changelog
-15.08.2015
-v1.0 is published with basic functionalities
+= 1.1 = 
+Integrate presentation (Reveal.js) with the theme
+Add presentation-iframe to notes view
+
+= 1.0 = 
+First publish with basic functionalities

@@ -154,18 +154,156 @@ add_action( 'admin_head', __NAMESPACE__ . '\\irajala_custom_styles' );
 function irajala_change_shortcode( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'direction'    => 'left',
+			'direction' => 'left',
 		), $atts, 'irajala_section_shortcode' );
 
 
-	return '<span class="changeSlide" data-direction="'.$atts['direction'].'">Vaihdetaan dia  '.__($atts['direction'], 'sage').'</span>';
+	return '<span class="changeSlide" data-direction="' . $atts['direction'] . '">Vaihdetaan dia  ' . __( $atts['direction'], 'sage' ) . '</span>';
 
 }
 
 add_shortcode( 'change', __NAMESPACE__ . '\\irajala_change_shortcode' );
 
 
-function get_current_on_air_notes(){
+function ir_acf_add_field_groups() {
+
+	if ( function_exists( "register_field_group" ) ) {
+		register_field_group( array(
+			'id'         => 'acf_article-settings',
+			'title'      => 'Article settings',
+			'fields'     => array(
+				array(
+					'key'             => 'field_57c8713e30f15',
+					'label'           => 'Slides',
+					'name'            => 'notes_slides',
+					'type'            => 'relationship',
+					'return_format'   => 'id',
+					'post_type'       => array(
+						0 => 'ir_horizontal_slide',
+					),
+					'taxonomy'        => array(
+						0 => 'all',
+					),
+					'filters'         => array(
+						0 => 'search',
+					),
+					'result_elements' => array(
+						0 => 'post_title',
+					),
+					'max'             => '',
+				),
+				array(
+					'key'           => 'field_57dd04736c437',
+					'label'         => 'On air',
+					'name'          => 'on_air',
+					'type'          => 'true_false',
+					'message'       => '',
+					'default_value' => 0,
+				),
+			),
+			'location'   => array(
+				array(
+					array(
+						'param'    => 'post_type',
+						'operator' => '==',
+						'value'    => 'post',
+						'order_no' => 0,
+						'group_no' => 0,
+					),
+				),
+			),
+			'options'    => array(
+				'position'       => 'normal',
+				'layout'         => 'no_box',
+				'hide_on_screen' => array(),
+			),
+			'menu_order' => 0,
+		) );
+		register_field_group( array(
+			'id'         => 'acf_horizontal-slides-settings',
+			'title'      => 'Horizontal slides settings',
+			'fields'     => array(
+				array(
+					'key'             => 'field_57c8702b45efc',
+					'label'           => 'Vertical slides',
+					'name'            => 'vertical_slides',
+					'type'            => 'relationship',
+					'return_format'   => 'id',
+					'post_type'       => array(
+						0 => 'ir_vertical_slide',
+					),
+					'taxonomy'        => array(
+						0 => 'all',
+					),
+					'filters'         => array(
+						0 => 'search',
+					),
+					'result_elements' => array(
+						0 => 'featured_image',
+						1 => 'post_title',
+					),
+					'max'             => '',
+				),
+			),
+			'location'   => array(
+				array(
+					array(
+						'param'    => 'post_type',
+						'operator' => '==',
+						'value'    => 'ir_horizontal_slide',
+						'order_no' => 0,
+						'group_no' => 0,
+					),
+				),
+			),
+			'options'    => array(
+				'position'       => 'normal',
+				'layout'         => 'no_box',
+				'hide_on_screen' => array(),
+			),
+			'menu_order' => 0,
+		) );
+		register_field_group( array(
+			'id'         => 'acf_vertical-slides-settings',
+			'title'      => 'Vertical slides settings',
+			'fields'     => array(
+				array(
+					'key'          => 'field_57c870879c7ce',
+					'label'        => 'Background image',
+					'name'         => 'slide_background_image',
+					'type'         => 'image',
+					'save_format'  => 'id',
+					'preview_size' => 'thumbnail',
+					'library'      => 'all',
+				),
+			),
+			'location'   => array(
+				array(
+					array(
+						'param'    => 'post_type',
+						'operator' => '==',
+						'value'    => 'ir_vertical_slide',
+						'order_no' => 0,
+						'group_no' => 0,
+					),
+				),
+			),
+			'options'    => array(
+				'position'       => 'normal',
+				'layout'         => 'no_box',
+				'hide_on_screen' => array(),
+			),
+			'menu_order' => 0,
+		) );
+	}
+
+
+}
+
+add_action( 'init', __NAMESPACE__.'\\ir_acf_add_field_groups' );
+
+
+function get_current_on_air_notes() {
 
 
 // args
