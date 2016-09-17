@@ -8,6 +8,9 @@ You can easily add shortcodes to your text by using keyboard shortcut or button 
 
 Livedemo: http://irajala.com/sermonnotes/
 
+##Screenshot:
+
+
 ###Functionalities:
 There are three shortcode in theme: 
 
@@ -35,8 +38,10 @@ alt+z => opens dialog box to add [section]-shortcode
 
 ##Changelog
 = 1.1 = 
+
 Integrate presentation (Reveal.js) with the theme
 Add presentation-iframe to notes view
 
-= 1.0 = 
+= 1.0 =
+ 
 First publish with basic functionalities
