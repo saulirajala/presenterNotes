@@ -6,8 +6,6 @@ This theme integrates with reveal.js so you can create and control both your pre
 
 You can easily add shortcodes to your text by using keyboard shortcut or button in tinyMCE toolbar
 
-Livedemo: http://irajala.com/sermonnotes/2015/08/09/moikka-maailma/ (well…this only demostrate the speaker view, but the remote presentation is same as the small presentation at the right bottom corner)
-
 
 ##Screenshot:
 ![alt tag](http://irajala.com/wp-content/screenshot-presentationnotes.png)
