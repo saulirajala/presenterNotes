@@ -27,10 +27,11 @@ the_post(); ?>
 			<section class="hidden">
 				<?php
 
-				$posts = get_field( 'notes_slides', Extras\get_current_on_air_notes());
+				$posts = get_post_meta( Extras\get_current_on_air_notes(), 'attached_cmb2_attached_posts', true );
 
 				if ( $posts ):
 					get_template_part( 'templates/content-slides' );
+					require_once get_template_directory().'/tokens.php';
 					?>
 					<script
 						src="<?php echo get_template_directory_uri(); ?>/vendor/reveal.js/lib/js/head.min.js"></script>
@@ -46,8 +47,8 @@ the_post(); ?>
 
 							multiplex: {
 								// Example values. To generate your own, see the socket.io server instructions.
-								secret: 'SECRET', // Obtained from the socket.io server. Gives this (the master) control of the presentation
-								id: 'ID', // Obtained from socket.io server
+								secret: "<?php echo $socket_secret; ?>", // Obtained from the socket.io server. Gives this (the master) control of the presentation
+								id: "<?php echo $socket_id; ?>", // Obtained from socket.io server
 								url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh' // Location of socket.io server
 							},
 

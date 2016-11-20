@@ -1,0 +1,44 @@
+.slides section {
+    line-height: 1.4em;
+    h1, h2, h3, h4, ol, li, ul, p {
+        color: #000;
+        text-shadow: 2px 2px 4px #989898;
+    }
+
+    h2, ol li {
+        font-size: 2em;
+    }
+    ol li h2 {
+        font-size: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.6em;
+        font-weight: 400;
+        text-transform: none;
+    }
+
+    h4 {
+        font-size: 1.3em;
+        font-weight: 400;
+        text-transform: none;
+
+    }
+
+    ul {
+        font-size: 60px;
+    }
+
+    img {
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+
+    .white-text {
+        h1, h2, h3, h4, ul, li, ol, p, & {
+            color: #fff;
+            text-shadow: 2px 2px 4px #000000;
+        }
+    }
+}

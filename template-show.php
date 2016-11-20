@@ -10,10 +10,11 @@ use Roots\Sage\Extras;
 
 
 	<?php
-	$posts = get_field( 'notes_slides', Extras\get_current_on_air_notes() );
+	$posts = get_post_meta( Extras\get_current_on_air_notes(), 'attached_cmb2_attached_posts', true );
 
 	if ( $posts ):
 		get_template_part( 'templates/content-slides' );
+		require_once 'tokens.php';
 		?>
 		<script src="<?php echo get_template_directory_uri(); ?>/vendor/reveal.js/lib/js/head.min.js"></script>
 		<script src="<?php echo get_template_directory_uri(); ?>/vendor/reveal.js/js/reveal.js"></script>
@@ -28,7 +29,7 @@ use Roots\Sage\Extras;
 				multiplex: {
 					// Example values. To generate your own, see the socket.io server instructions.
 					secret: null, // null so the clients do not have control of the master presentation
-					id: 'ID', // id, obtained from socket.io server
+					id: "<?php echo $socket_id; ?>", // id, obtained from socket.io server
 					url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh/' // Location of socket.io server
 				},
 

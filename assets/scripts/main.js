@@ -29,7 +29,23 @@
                             var slide_direction = this.element.dataset.direction;
 
                             window.postMessage( JSON.stringify({ method: slide_direction }), '*' );
-                            this.destroy();
+                            switch(slide_direction) {
+                                case 'left':
+                                    this.element.dataset.direction = 'right';
+                                    break;
+                                case 'right':
+                                    this.element.dataset.direction = 'left';
+                                    break;
+                                case 'up':
+                                    this.element.dataset.direction = 'down';
+                                    break;
+                                case 'down':
+                                    this.element.dataset.direction = 'up';
+                                    break;
+                                default:
+                                    this.element.dataset.direction = 'right';
+                            }
+
                         },
                     })
                 });

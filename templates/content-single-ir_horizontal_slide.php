@@ -1,37 +1,47 @@
-<?php while ( have_posts() ) : the_post(); ?>
-<div class="reveal">
-	<div class="slides">
-		<section>Slide 1</section>
-		<section>Slide 2</section>
-	</div>
-</div>
-<script src="js/reveal.js"></script>
-<script>
-	Reveal.initialize();
-</script>
+<?php
+use Roots\Sage\Extras;
 
-	<div class="container bs-docs-container">
-		<div class="row">
-			<!--content-->
-			<div class="col-xs-9 col-md-9">
-				<article <?php post_class(); ?>>
-					<header>
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-					</header>
-					<div class="">
-						<div class="entry-content">
+while ( have_posts() ) : the_post(); ?>
 
+	<div class="reveal">
+		<div class="slides">
 
-							<?php the_content(); ?>
-						</div>
-					</div>
-				</article>
+			<section>
+				<?php
+				$vertical_slides          = get_post_meta( get_the_ID(), 'ir_horizontal_slides', true );
+				if ( ! empty( $vertical_slides ) ):
+					foreach ( $vertical_slides as $slide ):
+						$background_image_id = $slide['bg_image_id'];
+						$background_image = wp_get_attachment_image_src( $background_image_id, 'full-image' );
+						$text_color       = $slide['text_color'];
+						?>
+						<section data-background="<?php echo isset( $background_image[0] ) ? $background_image[0] : ''; ?>"
+						         data-background-image="<?php echo isset( $background_image[0] ) ? $background_image[0] : ''; ?>">
+							<div class="<?php echo ( $text_color === 'white' ) ? 'white-text' : ''; ?>">
+								<?php echo $slide['slide_content']; ?>
+							</div>
 
-			</div>
-
-			<nav class="col-xs-3 col-md-3" id="myScrollspy">
-				<?php echo do_shortcode( "[section_navigation]" ); ?>
-			</nav>
+							<aside class="notes">
+							</aside>
+						</section>
+					<?php endforeach;
+				endif;
+				?>
+			</section>
 		</div>
+	</div>
 
-	<?php endwhile; ?>
+	<script src="<?php echo get_template_directory_uri(); ?>/vendor/reveal.js/lib/js/head.min.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/vendor/reveal.js/js/reveal.js"></script>
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+		});
+	</script>
+
+<?php endwhile; ?>
