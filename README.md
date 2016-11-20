@@ -15,11 +15,20 @@ You can easily add shortcodes to your text by using keyboard shortcut or button 
 ###Functionalities:
 There are three shortcode in theme: 
 
--With [section]-shortcode you can add sections to your posttext
+-With [section]-shortcode you can add sections to your posttext:<br>
+`[section title="1" subtitle=""]Lorem ipsum[/section]`<br>
+`[section title="1" subtitle="1"]Subtitle[/section]`<br>
+`[section title="1" subtitle="2"]Subtitle 2[/section]`<br>
 
 -With [section_navigation]-shortcode you can print out the navigation of these sections
 
--With [change]-shortcode you can define, when the changing of slides should trigger
+-With [change]-shortcode you can define, when the changing of slides should trigger:<br>
+`[change direction="right"]` => change to right aka. "press right-arrow"<br>
+`[change direction="down"]` => change to down aka. "press down-arrow"<br>
+
+Theme automatically detect, to what direction the last slide-change happened, so if you scroll back to slide-change element, slide will change to opposite direction. 
+
+For example `[change direction="right"]` will be `[change direction="left"]`, if you hit the same element again. This way you can go back and forth in your slides.
 
 ###How to use?
 For reveal.js multiplexing to work you need socket.io server (see https://github.com/hakimel/reveal.js#multiplexing)
@@ -27,10 +36,12 @@ You can add tokens to theme-folder/tokens.php using following variables:<br>
 `$socket_secret = 'YOUR_SOCKET_SECRET';`<br>
 `$socket_id = 'YOUR_SOCKET_ID';`
 
-1. Add horizontal slides for your presentations
+At WordPress admin-view:
+1. Add horizontal slides for your presentations<br>
+    - slide-editor supports for now wysiwyg-field, background-image, and black/white text color selector
 2. Attach horizontal slides to your notes
 3. Mark your note as On Air => correct slides will show in presentations
-4. Add pages for master-show (using template "Slideshow template") and for your slave-show (using template "Show Template")
+4. Add pages for master-show (using template "Slideshow template") and for your slave-show (using template "Show Template"). Master-show is optional.
 
 ###Keyboard shortcut:
 
